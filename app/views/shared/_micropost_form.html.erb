@@ -1,0 +1,21 @@
+	 	<%= form_for @micropost do |f| %>
+		 	<%= render 'shared/error_messages',object: f.object %>
+		 	<div class="form-group">
+
+		 	<%= f.text_area :content, class: 'form-control' %>
+		 	</div>
+
+		 	<div class="form-group">
+		 		<%= f.file_field :picture, accept:'image/jpg,image/jpeg,image/png',id:'micropost_picture' %>
+		 	</div>
+		 	<%= f.submit "Post", class: 'btn btn-primary form-control' %>
+		 	<% end %>
+		 	<script>
+		 		$('#micropost_picture').bind('change',function(){
+		 			var size_mb = this.files[0].size/1024/1024;
+
+		 			if (size_mb > 2){
+		 				alert('Maximum file size is 5mb.Prease chose anohter file.');
+		 			}
+		 		})
+		 	</script>

@@ -1,4 +1,4 @@
-class MicropostsController < ApplicationController
+declass MicropostsController < ApplicationController
 	before_action :require_login,only:[:create,:destroy]
 	before_action :correct_user,only:[:destroy]
 	def create
